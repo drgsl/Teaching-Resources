@@ -1,0 +1,551 @@
+1
+#include <stdio.h>
+#define LEAST_SEMNIF 55607
+#define SEMNIF 1
+
+//Sa se scrie codul in limbaj de asamblare care calculeaza suma: 1+2+3+...+n, unde n = 92682 
+//Atentie, aceasta suma nu se poate reprezenta folosind doar 32 de biti.
+
+void main(){
+ int n;
+ n = 92682;
+ int least_semnif,semnif;
+ _asm{
+	mov eax, n
+	mov ebx, eax
+	inc ebx
+	mul ebx
+	shr eax,1
+	mov ebx, edx
+	shr edx,1
+	shl ebx,31
+	or eax,ebx
+	mov semnif,edx
+	mov least_semnif, eax
+ }
+ if( least_semnif == LEAST_SEMNIF && SEMNIF == semnif){
+ printf("Ok!\n");
+ }else{
+ printf("Failed! Your result is: %d*pow(2,32)+%d\n",semnif, least_semnif);
+ } 
+}
+
+
+
+2
+#include <stdio.h>
+
+//Sa se scrie codul in limbaj de asamblare care inverseaza bitii  unui numar
+
+void main(){
+	char number;
+	number = 140;
+
+	_asm{
+		mov al,number
+		xor cl,cl
+
+		mov bl,al
+		and bl,00000001b
+		shl bl,7
+		or cl, bl
+
+		mov bl,al
+		and bl,00000010b
+		shl bl,5
+		or cl, bl
+
+		
+		mov bl,al
+		and bl,00000100b
+		shl bl,3
+		or cl, bl
+		
+		mov bl,al
+		and bl,00001000b
+		shl bl,1
+		or cl, bl
+		
+		mov bl,al
+		and bl,00010000b
+		shr bl,1
+
+		mov bl,al
+		and bl,00100000b
+		shr bl,3
+
+		mov bl,al
+		and bl,01000000b
+		shr bl,5
+		or cl, bl
+
+		mov bl,al
+		and bl,10000000b
+		shr bl,7
+		or cl, bl
+		
+		mov number,cl
+	}
+	if( number != 49)
+		printf("Failed! Your result is %d\n",number);
+	else
+		printf("OK!");	
+}
+
+
+
+
+3
+#include <stdio.h>
+
+//Completati exemplul urmator astfel incat functia max sa returneze maximun dintre a si b
+
+int max(int a, int b){
+ int maxim;
+ _asm{
+	//completati
+	 mov eax, a
+	 mov ebx, b
+	 cmp eax,ebx
+	 jg a_is_greater
+	 mov maxim, ebx
+	 jmp _done
+a_is_greater:
+	 mov maxim,eax
+_done:
+
+ }
+ return maxim;
+}
+
+void main(){
+ int a,b;
+ printf("a = ");
+ scanf("%d",&a);
+ printf("b = ");
+ scanf("%d",&b);
+ printf("MAX(a,b) = %d",max(a,b));
+}
+
+
+
+4
+#include <stdio.h>
+
+//Sa se scrie codul in limbaj de asamblare care oglindeste bitii  unui numar
+
+void main(){
+	unsigned int number;
+	number = 140;
+
+	_asm{
+		/* Completati */
+		mov ebx, number
+		xor eax,eax
+		mov ecx,0
+_loop:
+		cmp ecx,32
+		jz _done
+		shl eax,1
+		shr ebx,1
+		jnc _next_bit
+		or eax,1
+_next_bit:
+		inc ecx
+		jmp _loop
+_done:
+		mov number, eax
+	}
+	if( number != 822083584)
+		printf("Failed! Your result is %d\n",number);
+	else
+		printf("OK!");	
+}
+
+
+
+5
+Sa se scrie o functie f(int n) ce primeste ca parametru variabila int n si returneaza rezultatul calculului:
+2 + 2*4 + 2*4*6 + 2*4*6*8 + … +2*4*6*8*…*2n.
+Functia trebuie sa fie apelata din limbaj de asamblare.
+int f(int n){
+	_asm{
+		mov esi, [ebp+8]	//n
+		mov ecx,1			// counter
+		xor edi, edi	//rezultat final
+		mov eax,1			//factorial
+_while:
+		cmp ecx, esi	
+		jg gata
+		mul ecx //factorial* counter
+		add edi, eax //noul rezultat partial
+		inc ecx
+		jmp _while
+gata:
+		mov eax, edi
+		shl eax,1
+	}
+}
+
+
+
+
+6
+#include <stdio.h>
+
+//Calculul factorialului unui numar - recursiv
+
+unsigned int fact_rec(unsigned int nr){
+ _asm{
+		mov esi, [ebp+8] //se pune nr in esi
+		cmp esi, 2 		//comparare nr cu 2
+		jnb apel_recursiv //Daca nr >= 2, se face saltul, altfel:
+		mov eax, 1		// se returneaza 1
+		jmp gata		//gata
+apel_recursiv:
+		dec esi			// nr-1
+		push esi		
+		call fact_rec
+		add esp,4	//eax = fact(nr-1)
+		mov esi, [ebp+8] // esi = nr
+		mul esi //return fact(nr-1)*nr
+gata:
+ }
+}
+
+void main(){
+ int nr,fact;
+ printf("nr = ");
+ scanf("%u",&nr);
+ _asm{
+	push nr
+	call fact_rec
+	add esp,4
+	mov fact, eax
+ }
+ printf("%u! = %u",nr,fact);
+}
+
+
+
+7
+#include <stdio.h>
+
+//interschimbati valorile variabilelor a si b
+void swap (int *a, int *b)
+{
+ _asm{
+	mov eax,[ebp+8]//&a
+	mov ebx,[ebp+12]//&b
+	mov ecx,[eax]//a
+	mov edx,[ebx]//b
+	mov [eax],edx
+	mov [ebx],ecx
+ }
+}
+
+void main()
+{
+ int a=2, b=3;
+ swap(&a,&b);
+ printf("%d %d", a, b);
+}
+
+
+
+8
+#include <stdio.h>
+
+//Calculati suma elementelor pare dintr-un vector.
+int suma_pare_vector (int *, int )
+{
+ _asm
+ {
+	mov esi,[ebp+8]//v
+	mov edx,[ebp+12]//nr
+	xor ecx,ecx//index
+	xor eax,eax//suma = 0
+_while:
+	cmp ecx,edx
+	jz _final
+	mov ebx, [esi]
+	test ebx,1
+	jnz _impar
+	//par
+	add eax,ebx
+_impar:
+	add esi,4
+	inc ecx
+	jmp _while
+_final:
+
+ }
+}
+
+
+void main()
+{
+ int v[5]={5,1,2,3,6};
+ int *p=v;
+ int s;
+
+ _asm{
+	push 5
+	push p
+	call suma_pare_vector
+	add esp,8
+	mov s, eax
+ }
+
+ printf("Suma: %d", s);
+}
+
+
+
+9
+#include <stdio.h>
+//Determinati numarul de vocale dintr-un sir de caractere
+int lungime(char *)
+{
+ _asm{
+	mov esi,[ebp+8]//sir
+	xor eax,eax//nr vocale=0
+_while:
+	mov bl,[esi]
+	cmp bl,0
+	jz _gata
+	//am extras o litera
+	or bl,32//conversie litera mica
+	cmp bl, 'a'
+	jz vocala
+	cmp bl, 'e'
+	jz vocala
+	cmp bl, 'i'
+	jz vocala
+	cmp bl, 'o'
+	jz vocala
+	cmp bl, 'u'
+	jz vocala
+	//consoala
+	jmp _next_letter
+vocala:
+	inc eax
+_next_letter:
+	inc esi
+	jmp _while
+_gata:
+ }
+}
+
+void main()
+{
+ char *sir="Numarul de vocale";
+ int l;
+
+ _asm{
+	push sir
+	call lungime
+	add esp,4
+	mov l,eax
+ }
+
+ printf("Numarul de vocale este: %d\n", l);
+}
+
+
+10
+#include <stdio.h>
+//Construiti matricea unitate (1 pe diagonala, 0 in rest)
+
+void matrice_unitate(int *, int )
+{
+ _asm{
+	mov esi, [ebp+8]//p
+	mov ecx, [ebp+12]//n
+	mov eax,ecx
+	mul ecx// eax = n*n (numarul de elemente din matrice)
+	mov edx,eax//n*n
+	//punem zero peste tot
+	xor ecx, ecx
+_while_zero:
+	cmp ecx,edx
+	jz _gata
+	mov dword ptr[esi],0
+	inc ecx
+	add esi,4
+	jmp _while_zero
+_gata:
+	//acum punem 1 pe diagonala principala
+	mov esi, [ebp+8]//p
+	mov ecx, [ebp+12]//n
+	lea edx,[4*ecx+4]//ofsetul intre doua elemente consecutive de pe diagonala principala
+_while_unu:
+	cmp ecx,0
+	jz _finish
+	dec ecx
+	mov dword ptr [esi], 1
+	add esi, edx//adresa urmatorului element de pe diagonala principala
+	jmp _while_unu
+_finish:
+ }
+}
+
+void main()
+{
+ int n=5;
+ int mat[5][5];
+ int *p = mat[0];
+ 
+ _asm
+ {
+	push n
+	push p
+	call matrice_unitate
+	add esp,8
+ }
+
+ for(int i=0; i<n; i++)
+ {
+ for(int j=0; j<n; j++)
+ printf("%d ", mat[i][j]);
+ printf ("\n");
+ }
+}
+
+
+
+11
+#include <stdio.h>
+#include <malloc.h>
+//Construiti matricea unitate (1 pe diagonala, 0 in rest)
+void matrice_unitate(int **, int )
+{
+        _asm{
+                mov esi,[ebp+8]//mat
+				mov edx,[ebp+12]//nr
+				xor ecx,ecx//index
+_while:
+				cmp ecx,edx
+				jz _finish
+				mov edi,[esi]
+				xor eax,eax//index in vectorul de int-uri
+_while_2:
+				cmp eax,ecx
+				jz _finish_while_2
+				mov dword ptr [edi],0
+				inc eax
+				add edi,4
+				jmp _while_2
+_finish_while_2:
+				//suntem pe diagonala principala
+				mov dword ptr [edi],1
+				inc eax
+				add edi,4
+				//continuam pe linia curenta
+_while_3:
+				cmp eax,edx
+				jz _finish_while_3
+				mov dword ptr [edi],0
+				inc eax
+				add edi,4
+				jmp _while_3
+_finish_while_3:
+				inc ecx
+				add esi,4
+				jmp _while
+_finish:
+        }
+}
+
+void main()
+{
+        int n=5,i;
+        int **mat;
+ mat = (int**)malloc(n*sizeof(int*));
+        for(i=0;i<n;i++){
+ mat[i] = (int*)malloc(n*sizeof(int));
+        }
+
+        _asm
+        {
+			push n
+            push mat
+			call matrice_unitate
+			add esp,8
+        }
+
+        for(int i=0; i<n; i++)
+        {
+                for(int j=0; j<n; j++)
+                        printf("%d ", mat[i][j]);
+                printf ("\n");
+        }
+}
+
+
+
+12
+#include <iostream>
+using namespace std;
+
+struct Str1{
+char c;
+short s;
+int i;
+};
+ 
+struct Str2{
+char c;
+int i;
+short s;
+};
+
+void generate(char,short, int, Str1*)
+{
+ _asm{
+		mov esi,[ebp+20]
+		mov eax, [ebp+16]
+		mov [esi+4],eax
+		mov ax, [ebp+12]
+		mov [esi+2],ax
+		mov al, [ebp+8]
+		mov [esi],al
+    }
+}
+
+
+void generate_2(char,short, int, Str2*)
+{
+ _asm{
+		mov esi,[ebp+20]
+		mov eax, [ebp+16]
+		mov [esi+4],eax
+		mov ax, [ebp+12]
+		mov [esi+8],ax
+		mov al, [ebp+8]
+		mov [esi],al
+    }
+}
+
+
+void main()
+{
+	Str1* s1 = new Str1;
+	Str2* s2 = new Str2;
+	_asm{
+		push s1
+		push 4
+		push 3
+		push 'a'
+		call generate
+		add esp,16
+		push s2
+		push 2
+		push 1
+		push 'b'
+		call generate_2
+		add esp,16
+	}
+	printf("%d %d %c\n",s1->i,s1->s,s1->c);
+	printf("%d %d %c\n",s2->i,s2->s,s2->c);
+}
