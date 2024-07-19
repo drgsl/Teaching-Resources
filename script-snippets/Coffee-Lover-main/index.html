@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <script type="text/javascript" src="./script.js" defer></script>
+  <title>Coffee Lover</title>
+</head>
+
+<body>
+
+  <button onclick="topFunction()" id="topButton" title="Go to top">Go back</button>
+
+  <img class="logo" src=".\img\logo.png"><img>
+  <img class="question screen" onclick="goToScreen(1)" src=".\img\question.png"><img>
+
+  <h1 class="history"> History</h1>
+  <div class="history-wrapper">
+    <p class = "fromLeft">
+      The original domesticated coffee plant is said to have been from Harar,
+      and the native population is thought to be derived from <b>Ethiopia</b>
+      with distinct nearby populations in Sudan and Kenya.
+      Coffee was primarily consumed in the Islamic world where it originated
+      and was directly related to religious practices.
+      The word <b>"coffee"</b> entered the English language in 1582 via the
+      Dutch <b>koffie</b>, borrowed from the Ottoman Turkish <b>kahve</b>, in turn
+      borrowed from the Arabic <b>qahwah</b>.
+    </p>
+    <img class = "fromRight screen" onclick="goToScreen(2)" src=".\img\coffee-map.png"></img>
+  </div>
+
+  <h1 class="types">Types</h1>
+  <h1 class="types-description fromLeft">Different Types of Coffee Beans</h1>
+  <div class="types-wrapper">
+    <img class = "fromLeft screen" onclick="goToScreen(3)" src=".\img\coffee-beans.png"></img>
+    <p class = "fromRight">
+      There are four different types of coffee beans:
+      Arabica, Robusta, Liberica, and Excelsa.
+      The most common (and popular) are Arabica and Robusta,
+      but you might get lucky and run into the other two.
+    </p>
+  <p class="fromLeft">
+      <b>Arabica</b> tends to have a smoother, sweeter taste,
+      with flavour notes of chocolate and sugar.
+      They often also have hints of fruits or berries.
+      <b>Robusta</b>, on the other hand, has a stronger, harsher and
+      more bitter taste, with grainy or rubbery overtones.
+    </p>
+  </div>
+
+  <h1 class="drinks">Coffee Drinks</h1>
+  <h1 class="drinks-description fromRight">Most popular coffee drinks</h1>
+  <div class="drinks-wrapper">
+    <img class = "fromLeft screen" onclick="goToScreen(4)" src=".\img\coffee-drinks.png"></img>
+    <p id="title" class="fromLeft">
+      Whether you’re enjoying your morning coffee alone or
+      with friends you can make it a special moment.
+    </p>
+    <p class="fromRight">
+      Make time to grind your beans and inhale
+      the fresh aroma. It’s the perfect way to prepare your
+      coffee and senses.
+    </p>
+    <p class="fromLeft">
+      A favourite mug is a great place to begin. Serve coffee in style.
+      Add joyful accessoires - fresh flowers and candles.
+      </p>
+    <p class="fromRight">
+      Taste like chocolate or berry, coffee has as many tastes
+      as wine or beer. But the first time you drink coffee that
+      tastes like more than coffee, you’ll never forget it.
+    </p>
+    <p class="fromLeft">
+            Тhe best way to enjoy a cup is by honouring all the
+      craftspeople – the producers, green-coffee buyers, roasters,
+      baristas and more – who made your brew possible.
+    </p>
+  </div>
+
+
+  <div class="coffee-types-wrapper">
+
+    <div class="espresso fromLeft screen" onclick="goToScreen(5)">
+      <h id="title">The Espresso</h>
+      <img src=".\img\CoffeeTypes\espresso.png"></img>
+      <p id="description">The length of one espresso shot can be ristretto
+        (or stretto) (reduced), normale or standard (normal),
+        or lungo (long).
+        <br>
+        Proportions will vary and the volume of the
+        crema will also be different depending on the measurements used.
+        <br>
+        For example, a ristretto is usually half of a volume of normale
+        and lungo is double the normale volume.
+      </p>
+    </div>
+
+    <div class="doppio fromRight  screen" onclick="goToScreen(6)">
+      <h id="title">The Doppio</h>
+      <img src=".\img\CoffeeTypes\doppio.png"></img>
+      <p id="description">A Doppio is a double espresso in a cup.
+        No other ingredient is added to it.
+        <br>
+        To create a double espresso all you need is two shots of espresso.
+      </p>
+    </div>
+
+    <div class="americano fromLeft screen" onclick="goToScreen(7)">
+      <h id="title">The Americano</h>
+      <img src=".\img\CoffeeTypes\americano.png"></img>
+      <p id="description">To make an Americano, you must pour the hot water
+        first.
+        <br>
+        Fill two-thirds of a cup with hot water and add one shot of
+        espresso over the hot water.
+      </p>
+    </div>
+
+    <div class="cappuccino fromRight screen" onclick="goToScreen(8)">
+      <h id="title">The Cappuccino</h>
+      <img src=".\img\CoffeeTypes\cappuccino.png"></img>
+      <p id="description">A cappuccino is made by pouring an espresso shot into a
+        cup, then top it with steamed milk and foam in an equal ration.
+        <br>
+        You should sprinkle ground chocolate on top of the foam,
+        if you like it more fancy.
+      </p>
+    </div>
+
+    <div class="latte fromLeft screen" onclick="goToScreen(9)">
+      <h id="title">The Latte</h>
+      <img src=".\img\CoffeeTypes\latte.png"></img>
+      <p id="description">To create the perfect latte extract one shot of espresso,
+        then pour steamed milk over.
+        <br>
+        The latte should have a minimal amount of milk foam on top,
+        used to create "latte art".
+      </p>
+    </div>
+
+    <div class="mocha fromRight screen" onclick="goToScreen(10)">
+      <h id="title">The Mocha</h>
+      <img src=".\img\CoffeeTypes\mocha.png"></img>
+      <p id="description">A mocha is a cross between a cappuccino
+        and a hot chocolate.
+        <br>
+        The idea behind a mocha is to have
+        an extraordinarily extravagant drink.
+        <br>
+        A shot of espresso, a small part of hot chocolate
+        (or hot chocolate syrup), topped with steamed milk and milk foam.
+      </p>
+    </div>
+
+    <div class="macchiato fromLeft screen" onclick="goToScreen(11)">
+      <h id="title">The Macchiato</h>
+      <img src=".\img\CoffeeTypes\macchiato.png"></img>
+      <p id="description">The macchiato is another espresso-based drink that
+        has a small amount of foam on top.
+        <br>
+        It’s the happy medium between a cappuccino and a doppio.
+        Just note that different baristas will have their own way
+        of doing the macchiato.
+        <br>
+        You will find some who add a dollop
+        of steamed milk and a dollop of milk foam.
+      </p>
+    </div>
+
+    <div class="irish fromRight screen" onclick="goToScreen(0)">
+      <h id="title">The Irish Coffee</h>
+      <img src=".\img\CoffeeTypes\irish.png"></img>
+      <p id="description">It's a delightful and cheerful and basically
+        classed more of a cocktail than a coffee beverage.
+        <br>
+        Irish coffee is dunk through the cream.
+        <br>
+        The traditional way is
+        as follows: 8 cl of espresso, 4 cl of whiskey, 3 cl fresh cream
+        and 1 tsp of brown sugar.
+        <br>
+        Sit back, relax and sip a delicious
+        combo of espresso and whiskey through a thick layer of indulgent
+        whipped cream.
+      </p>
+    </div>
+
+  </div>
+
+  <p class="enjoy wiggle"> Enjoy! </p>
+
+</body>
+
+</html>

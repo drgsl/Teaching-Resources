@@ -1,0 +1,39 @@
+-- Implementarea pachetului "student_pkg"
+CREATE OR REPLACE PACKAGE BODY student_pkg IS
+    -- Procedura pentru adaugarea unui nou student
+    PROCEDURE adauga_student(nume IN VARCHAR2, prenume IN VARCHAR2, nr_matricol IN VARCHAR2) IS
+        an STUDENTI.AN%TYPE;
+        id STUDENTI.ID%TYPE;
+    BEGIN
+        an := DBMS_RANDOM.VALUE(1, 3); -- Generare aleatorie a anului de studiu (1-3)
+        id := STUDENTI_SEQ.NEXTVAL; -- Generare secventiala a ID-ului studentului
+        -- Inserare a unui nou student in baza de date
+        INSERT INTO STUDENTI (ID, NR_MATRICOL, NUME, PRENUME, AN) 
+        VALUES (id, nr_matricol, nume, prenume, an);
+        COMMIT;
+    END adauga_student;
+
+    -- Procedura pentru adaugarea de note pentru un student in functie de anul de studiu
+    PROCEDURE adauga_note_student(nr_matricol IN VARCHAR2) IS
+        id_student STUDENTI.ID%TYPE;
+        an_student STUDENTI.AN%TYPE;
+        id_curs CURSURI.ID%TYPE;
+        nota FLOAT;
+    BEGIN
+        -- Identificarea ID-ului studentului si anului de studiu aferent
+        SELECT ID, AN INTO id_student, an_student FROM STUDENTI WHERE NR_MATRICOL = nr_matricol;
+        -- Adaugarea de note pentru cursurile corespunzatoare anului de studiu
+        FOR curs IN (SELECT * FROM CURSURI WHERE AN <= an_student) LOOP
+            id_curs := curs.ID;
+            nota := DBMS_RANDOM.VALUE(1, 10); -- Generare aleatorie a notei (1-10)
+            INSERT INTO NOTE (ID_STUDENT, ID_CURS, VALOARE) VALUES (id_student, id_curs, nota);
+        END LOOP;
+        COMMIT;
+    END adauga_note_student;
+
+    -- Procedura pentru afisarea anului de studiu, notele si id-urile cursurilor pentru un student dat
+    PROCEDURE afisare_student(nr_matricol IN VARCHAR2) IS
+        id_student STUDENTI.ID%TYPE;
+        an_student STUDENTI.AN%TYPE;
+        cursuri_array SYS.ODCINUMBERLIST := SYS.ODCINUMBERLIST();
+        note_array SYS.ODCINUMBERLIST :=

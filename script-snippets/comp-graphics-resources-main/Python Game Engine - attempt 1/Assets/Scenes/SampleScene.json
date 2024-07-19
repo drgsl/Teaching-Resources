@@ -1,0 +1,115 @@
+{
+    "Name": "SampleScene",
+    "GameObjects": [
+        {
+            "Name": "Empty",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 6.5,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "Rotation": {
+                        "x": -3.0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "Scale": {
+                        "x": 4.5,
+                        "y": -2.0,
+                        "z": 1
+                    }
+                }
+            }
+        },
+        {
+            "Name": "Empty GameObject",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 10.5,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "Rotation": {
+                        "x": 0.0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "Scale": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1
+                    }
+                }
+            }
+        },
+        {
+            "Name": "Empty GameObjectRenamed",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 19.0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "Rotation": {
+                        "x": 0.0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "Scale": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1
+                    }
+                }
+            }
+        },
+        {
+            "Name": "Empty Tester",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 8.5,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "Rotation": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "Scale": {
+                        "x": 1,
+                        "y": 1,
+                        "z": 1
+                    }
+                }
+            }
+        },
+        {
+            "Name": "Empty GameObjectTest",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": -5.0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "Rotation": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "Scale": {
+                        "x": 1,
+                        "y": 1,
+                        "z": 1
+                    }
+                }
+            }
+        }
+    ]
+}

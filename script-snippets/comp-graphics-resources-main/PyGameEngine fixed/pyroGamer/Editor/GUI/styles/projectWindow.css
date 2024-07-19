@@ -1,0 +1,110 @@
+/* body */
+QWidget#CentralWidget{
+  background-color: #041122;
+  }
+
+/* Panel */
+QWidget#ContentWidget{
+  background-color: #259073;
+  border-radius: 25px;
+}
+
+QLabel#NoProjectLabel{
+  /* background-color: red; */
+  color: #0f1925;
+  font-size: 40px;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+
+
+
+
+QPushButton#OpenProjectButton{
+  background-color: #7fda89;
+}
+/* QPushButton#OpenProjectButton:focus, */
+QPushButton#OpenProjectButton:hover{
+  background-color: #5fc46b;
+  border: 5px solid #9ac3fe;
+}
+
+QPushButton#CreateProjectButton{
+  background-color: #e6f99d;
+}
+/* QPushButton#CreateProjectButton:focus, */
+QPushButton#CreateProjectButton:hover{
+  background-color: #c8e98e;
+  border: 5px solid #9ac3fe;
+}
+
+  /* QLabel {
+    color: #464d55;
+    font-weight: 600;
+  }
+  QLabel#heading {
+    color: #0f1925;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  QLabel#subheading {
+    color: #0f1925;
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+
+
+
+QDialog {
+    background-color: #259073;
+}
+
+QLineEdit {
+    border-radius: 8px;
+    border: 1px solid #041122;
+    padding: 5px 15px;
+}
+  
+QLineEdit:focus {
+  border: 2px solid #041122;
+}
+  
+QLineEdit::placeholder {
+    color: #767e89;
+}
+QPushButton#Cancel{
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 600;
+    /* border-radius: 8px; */
+    /* border: 1px solid #0d6efd; */
+    /* padding: 5px 15px; */
+    /* margin-top: 10px; */
+    /* outline: 5px;
+}
+QPushButton#Create{
+    background-color: #c8e98e;
+    color: #000000;
+    font-weight: 600;
+    /* border-radius: 8px; */
+    /* border: 1px solid #0d6efd; */
+    /* padding: 5px 15px; */
+    /* margin-top: 10px; */
+    /* outline: 0px;
+}
+QPushButton:hover,
+QPushButton:focus {
+    background-color: #0b5ed7;
+    border: 3px solid #9ac3fe;
+}
+QPushButton:pressed {
+    background-color: #0b5ed7;
+    border: 3px solid #9ac3fe;
+}
+QPushButton:disabled{
+  /* border: 1px solid #999999; */
+  /* background-color: #cccccc;
+  color: #666666;
+/* } */

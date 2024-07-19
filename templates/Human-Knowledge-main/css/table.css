@@ -1,0 +1,63 @@
+
+canvas {
+    display: block;
+    margin: 20px auto;
+    border: 1px solid black;
+  }
+
+  
+table{
+    /* border: 1px none black; */
+    /* border-collapse: collapse; */
+    /* text-align: center; */
+    /* width: 100%; */
+}
+
+
+th, td {
+    border: 1px solid black;
+    /* max-height: 100px; */
+    /* height: 100px; */
+    /* 
+    dotted
+    dashed
+    solid
+    double
+    groove
+    ridge
+    inset
+    outset
+    none
+    hidden 
+    */
+}
+
+    th::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border-left: 1px solid black;
+      height: 100%;
+      z-index: -1;
+    }
+
+    th[colspan="7"]::before,
+    th[colspan="20"]::before {
+      left: 0;
+      width: 100%;
+    }
+
+    th[colspan="5"]::before,
+    th[colspan="2"]::before {
+      left: 100%;
+      height: 50%;
+    }
+
+    th[colspan="3"]::before,
+    th[colspan="2"]::before,
+    th[colspan="1"]::before {
+      left: 100%;
+      height: 100%;
+    }
+

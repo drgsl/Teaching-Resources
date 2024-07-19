@@ -1,0 +1,511 @@
+{
+    "Name": "TestRandomScene",
+    "GameObjects": [
+        {
+            "Name": "Empty GameObject",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": -19.0,
+                        "y": 52.0,
+                        "z": -88.0
+                    },
+                    "Rotation": {
+                        "x": -2.0,
+                        "y": 71.0,
+                        "z": -67.0
+                    },
+                    "Scale": {
+                        "x": -30.0,
+                        "y": 6.0,
+                        "z": -27.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 0",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 100.0,
+                        "y": 1.0,
+                        "z": 31.0
+                    },
+                    "Rotation": {
+                        "x": 62.0,
+                        "y": 51.0,
+                        "z": -83.0
+                    },
+                    "Scale": {
+                        "x": -67.0,
+                        "y": -74.0,
+                        "z": 20.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 1",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 91.0,
+                        "y": 66.0,
+                        "z": -49.0
+                    },
+                    "Rotation": {
+                        "x": -33.0,
+                        "y": 6.0,
+                        "z": 94.0
+                    },
+                    "Scale": {
+                        "x": 55.0,
+                        "y": 100.0,
+                        "z": -17.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 2",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 2.0,
+                        "y": -3.0,
+                        "z": -52.0
+                    },
+                    "Rotation": {
+                        "x": 69.0,
+                        "y": 30.0,
+                        "z": -25.0
+                    },
+                    "Scale": {
+                        "x": -89.0,
+                        "y": 89.0,
+                        "z": -60.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 3",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": -35.0,
+                        "y": 84.0,
+                        "z": 79.0
+                    },
+                    "Rotation": {
+                        "x": 87.0,
+                        "y": 57.0,
+                        "z": -97.0
+                    },
+                    "Scale": {
+                        "x": -52.0,
+                        "y": -40.0,
+                        "z": -74.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 4",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": -74.0,
+                        "y": 58.0,
+                        "z": 80.0
+                    },
+                    "Rotation": {
+                        "x": 28.0,
+                        "y": 66.0,
+                        "z": 10.0
+                    },
+                    "Scale": {
+                        "x": 75.0,
+                        "y": -66.0,
+                        "z": 31.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 5",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": -70.0,
+                        "y": -57.0,
+                        "z": -1.0
+                    },
+                    "Rotation": {
+                        "x": 33.0,
+                        "y": -17.0,
+                        "z": -53.0
+                    },
+                    "Scale": {
+                        "x": 84.0,
+                        "y": 66.0,
+                        "z": 61.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 6",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": -22.0,
+                        "y": -17.0,
+                        "z": 36.0
+                    },
+                    "Rotation": {
+                        "x": 79.0,
+                        "y": -17,
+                        "z": -68.0
+                    },
+                    "Scale": {
+                        "x": 13.0,
+                        "y": -23.0,
+                        "z": -58.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 7",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 48.0,
+                        "y": -7.0,
+                        "z": -73.0
+                    },
+                    "Rotation": {
+                        "x": -61.0,
+                        "y": 19.0,
+                        "z": -89.0
+                    },
+                    "Scale": {
+                        "x": 8.0,
+                        "y": -37.0,
+                        "z": -57.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 8",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 16.0,
+                        "y": 1.0,
+                        "z": 77.0
+                    },
+                    "Rotation": {
+                        "x": -90.0,
+                        "y": -52.0,
+                        "z": 83.0
+                    },
+                    "Scale": {
+                        "x": -77.0,
+                        "y": 19.0,
+                        "z": 76.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 9",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 99.0,
+                        "y": -89.0,
+                        "z": 42.0
+                    },
+                    "Rotation": {
+                        "x": 43.0,
+                        "y": 18.0,
+                        "z": 2.0
+                    },
+                    "Scale": {
+                        "x": 54.0,
+                        "y": 16.0,
+                        "z": 64.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 10",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": -54.0,
+                        "y": 75.0,
+                        "z": 2.0
+                    },
+                    "Rotation": {
+                        "x": -29.0,
+                        "y": 87.0,
+                        "z": -28.0
+                    },
+                    "Scale": {
+                        "x": 13.0,
+                        "y": 51.0,
+                        "z": -16.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 11",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 60.0,
+                        "y": 49.0,
+                        "z": 0.0
+                    },
+                    "Rotation": {
+                        "x": -37.0,
+                        "y": 24.0,
+                        "z": -63.0
+                    },
+                    "Scale": {
+                        "x": -10.0,
+                        "y": -43.0,
+                        "z": -58.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 12",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": -44.0,
+                        "y": 40.0,
+                        "z": 75.0
+                    },
+                    "Rotation": {
+                        "x": 64.0,
+                        "y": -63.0,
+                        "z": 26.0
+                    },
+                    "Scale": {
+                        "x": -99.0,
+                        "y": 55.0,
+                        "z": 89.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 13",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 40.0,
+                        "y": 49.0,
+                        "z": -29.0
+                    },
+                    "Rotation": {
+                        "x": 71.0,
+                        "y": -9.0,
+                        "z": 37.0
+                    },
+                    "Scale": {
+                        "x": -90.0,
+                        "y": 21.0,
+                        "z": -76.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 14",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": -24.0,
+                        "y": 32.0,
+                        "z": 91.0
+                    },
+                    "Rotation": {
+                        "x": -81.0,
+                        "y": 17.0,
+                        "z": 74.0
+                    },
+                    "Scale": {
+                        "x": -50.0,
+                        "y": -43.0,
+                        "z": 21.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 15",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": -10.0,
+                        "y": 2.0,
+                        "z": 11.0
+                    },
+                    "Rotation": {
+                        "x": 32.0,
+                        "y": -91.0,
+                        "z": 85.0
+                    },
+                    "Scale": {
+                        "x": 85.0,
+                        "y": 71.0,
+                        "z": 69.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 16",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 47.0,
+                        "y": -38.0,
+                        "z": -10.0
+                    },
+                    "Rotation": {
+                        "x": -12.0,
+                        "y": -92.0,
+                        "z": -29.0
+                    },
+                    "Scale": {
+                        "x": -17.0,
+                        "y": 45.0,
+                        "z": -17.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 17",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 26.0,
+                        "y": -100.0,
+                        "z": 3.0
+                    },
+                    "Rotation": {
+                        "x": 34.0,
+                        "y": -84.0,
+                        "z": -12.0
+                    },
+                    "Scale": {
+                        "x": -91.0,
+                        "y": 23.0,
+                        "z": 89.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 18",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": -48.0,
+                        "y": -58.0,
+                        "z": 88.0
+                    },
+                    "Rotation": {
+                        "x": -73.0,
+                        "y": -65.0,
+                        "z": -23.0
+                    },
+                    "Scale": {
+                        "x": 2.0,
+                        "y": 63.0,
+                        "z": -63.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 19",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 94.0,
+                        "y": 29.0,
+                        "z": -98.0
+                    },
+                    "Rotation": {
+                        "x": 57.0,
+                        "y": 52.0,
+                        "z": 11.0
+                    },
+                    "Scale": {
+                        "x": -34.0,
+                        "y": 97.0,
+                        "z": 19.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 20",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 33.0,
+                        "y": -8.0,
+                        "z": 18.0
+                    },
+                    "Rotation": {
+                        "x": -73.0,
+                        "y": -91.0,
+                        "z": -26.0
+                    },
+                    "Scale": {
+                        "x": 42.0,
+                        "y": -7.0,
+                        "z": 51.0
+                    }
+                }
+            }
+        },
+        {
+            "Name": "GameObject 21",
+            "Components": {
+                "Transform": {
+                    "Position": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "Rotation": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "Scale": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                    }
+                }
+            }
+        }
+    ]
+}

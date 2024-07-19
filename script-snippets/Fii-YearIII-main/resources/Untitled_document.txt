@@ -1,0 +1,112 @@
+﻿CREATE OR REPLACE PACKAGE studenti_pkg AS
+
+
+  PROCEDURE adauga_student (
+    p_nume VARCHAR2,
+    p_prenume VARCHAR2,
+    p_nr_matricol VARCHAR2
+  );
+  
+  PROCEDURE adauga_note (
+    p_nume VARCHAR2,
+    p_prenume VARCHAR2,
+    p_nr_matricol VARCHAR2
+  );
+  
+  PROCEDURE afisare_note (
+    p_nume VARCHAR2,
+    p_prenume VARCHAR2,
+    p_nr_matricol VARCHAR2
+  );
+
+
+END studenti_pkg;
+/
+
+
+CREATE OR REPLACE PACKAGE BODY studenti_pkg AS
+
+
+  PROCEDURE adauga_student (
+    p_nume VARCHAR2,
+    p_prenume VARCHAR2,
+    p_nr_matricol VARCHAR2
+  ) AS
+    v_id INTEGER;
+    v_an INTEGER;
+  BEGIN
+    SELECT MAX(id) + 1 INTO v_id FROM studenti;
+    v_an := DBMS_RANDOM.VALUE(1, 3);
+    
+    INSERT INTO studenti (
+      id,
+      nr_matricol,
+      nume,
+      prenume,
+      an,
+      grupa
+    ) VALUES (
+      v_id,
+      p_nr_matricol,
+      p_nume,
+      p_prenume,
+      v_an,
+      NULL
+    );
+  END adauga_student;
+  
+  PROCEDURE adauga_note (
+    p_nume VARCHAR2,
+    p_prenume VARCHAR2,
+    p_nr_matricol VARCHAR2
+  ) AS
+    v_id_student INTEGER;
+    v_an INTEGER;
+    v_id_curs INTEGER;
+    v_nota INTEGER;
+  BEGIN
+    SELECT id, an INTO v_id_student, v_an FROM studenti WHERE nr_matricol = p_nr_matricol OR nume = p_nume OR prenume = p_prenume;
+    
+    FOR curs IN (
+      SELECT id FROM cursuri WHERE an <= v_an
+    ) LOOP
+      v_nota := DBMS_RANDOM.VALUE(1, 10);
+      
+      INSERT INTO note (
+        id_student,
+        valoare,
+        data_notare,
+        id_curs
+      ) VALUES (
+        v_id_student,
+        v_nota,
+        SYSDATE,
+        curs.id
+      );
+    END LOOP;
+  END adauga_note;
+  
+  PROCEDURE afisare_note (
+    p_nume VARCHAR2,
+    p_prenume VARCHAR2,
+    p_nr_matricol VARCHAR2
+  ) AS
+    v_id_student INTEGER;
+    v_an INTEGER;
+  BEGIN
+    SELECT id, an INTO v_id_student, v_an FROM studenti WHERE nr_matricol = p_nr_matricol OR nume = p_nume OR prenume = p_prenume;
+    
+    DBMS_OUTPUT.PUT_LINE('Studentul ' || p_nume || ' ' || p_prenume || ', cu numarul matricol ' || p_nr_matricol || ', se afla in anul ' || v_an || ' si are urmatoarele note:');
+    
+    FOR nota IN (
+      SELECT c.titlu_curs, n.valoare
+      FROM note n
+      JOIN cursuri c ON n.id_curs = c.id
+      WHERE n.id_student = v_id_student
+      ORDER BY c.an, c.semestru
+    ) LOOP
+      DBMS_OUTPUT.PUT_LINE('- ' || nota.titlu_curs || ': ' || nota.valoare);
+    END LOOP;
+  END afisare_note;
+  
+END

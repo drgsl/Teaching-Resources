@@ -1,0 +1,7 @@
+ 1924  ssh admin@192.168.0.136
+ 2102  ssh admin@192.168.0.136
+ 2133  history | grep "ssh admin@192.168.0.136" > vim
+ 2134  history | grep "ssh admin@192.168.0.136" > bat
+ 2135  history | grep "ssh admin@192.168.0.136" > less
+ 2136  history | grep "ssh admin@192.168.0.136"
+ 2137  history | grep "ssh admin@192.168.0.136" | head
